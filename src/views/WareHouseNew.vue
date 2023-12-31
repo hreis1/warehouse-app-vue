@@ -4,50 +4,20 @@
 
     <div class="container">
 
-      {{ msg }}
-      
-      <form v-on:submit.prevent>
+      <v-alert v-if="msg" type="info">{{ msg }}</v-alert>           
+      <v-form v-on:submit.prevent>
 
-        <div class="form">
-          <label for="code">Código</label>
-          <input type="text" id="code" v-model="form.code">
-        </div>
+        <v-text-field  label="Código" v-model="form.code"></v-text-field>
+        <v-text-field  label="Nome" v-model="form.name"></v-text-field>
+        <v-text-field  label="Endereço" v-model="form.address"></v-text-field>
+        <v-text-field  label="Cidade" v-model="form.city"></v-text-field>
+        <v-text-field  label="CEP" v-model="form.cep"></v-text-field>
+        <v-text-field  label="Área" v-model="form.area"></v-text-field>
+        <v-textarea  label="Descrição" v-model="form.description"></v-textarea>
 
-        <div class="form">
-          <label for="name">Nome</label>
-          <input type="text" id="name" v-model="form.name">
-        </div>
+        <v-btn v-on:click="postWareHouse" color="primary">Cadastrar</v-btn>
 
-        <div class="form">
-          <label for="address">Endereço</label>
-          <input type="text" id="address" v-model="form.address">
-        </div>
-
-        <div class="form">
-          <label for="city">Cidade</label>
-          <input type="text" id="city" v-model="form.city">
-        </div>
-
-        <div class="form">
-          <label for="cep">CEP</label>
-          <input type="text" id="cep" v-model="form.cep">
-        </div>
-
-        <div class="form">
-          <label for="area">Área</label>
-          <input type="text" id="area" v-model="form.area">
-        </div>
-
-        <div class="form">
-          <label for="description">Descrição</label>
-          <textarea cols="30" rows="10" id="description" v-model="form.description"></textarea>
-        </div>
-
-        <div class="form">
-          <button v-on:click="postWareHouse">Cadastrar</button>
-        </div>
-
-      </form>
+      </v-form>
     </div>
   </div>
 </template>
@@ -84,8 +54,10 @@ export default {
           description: this.form.description
         })
         this.msg = 'Galpão cadastrado com sucesso!'
+        return this.form = {}
       } catch (err) {
         this.msg = 'Erro ao cadastrar galpão!'
+        return console.log(err)
       }
     }
   }
