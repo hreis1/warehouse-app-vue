@@ -4,7 +4,7 @@
 
     <div class="container">
 
-      <v-alert v-if="msg" type="info">{{ msg }}</v-alert>           
+      <v-alert v-if="msg" type="info">{{ msg }}</v-alert>
       <v-form v-on:submit.prevent>
 
         <v-text-field  label="Código" v-model="form.code"></v-text-field>
