@@ -63,14 +63,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  .form {
-    margin-bottom: 15px;
-  }
-
-  .form input {
-    margin: 5px;
-  }
-
-</style>
